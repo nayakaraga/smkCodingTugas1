@@ -1,16 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <ul>
+      <li v-for="(item, index) in items" :key="index">
+        {{ (index + 1) }}. {{ item.nama }} - Status : {{ item.stok > 1 ? "Tersedia" :
+        "Habis"
+        }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  data() {
+    return {
+      items: [
+        { nama: "Apel", stok: "500" },
+        { nama: "Mangga", stok: "100" },
+        { nama: "Jeruk", stok: "0" },
+      ]
+    }
+  },
+  // components: {
+  //   HelloWorld
+  // }
 }
 </script>
 
